@@ -1,7 +1,2 @@
-﻿  main.cpp
-c:\users\matrembl6\source\repos\gestiondelamemoire\gestionmemoire\gestionmemoire\main.cpp(39): warning C4018: '<' : incompatibilité signed/unsigned
-  GestionMemoire.cpp
-c:\users\matrembl6\source\repos\gestiondelamemoire\gestionmemoire\gestionmemoire\gestionmemoire.cpp(85): warning C4018: '<' : incompatibilité signed/unsigned
-  Génération de code en cours...
-  GestionMemoire.vcxproj -> C:\Users\matrembl6\Source\Repos\GestionDeLaMemoire\GestionMemoire\Debug\GestionMemoire.exe
+﻿  GestionMemoire.vcxproj -> C:\Users\matrembl6\Source\Repos\GestionDeLaMemoire\GestionMemoire\Debug\GestionMemoire.exe
   GestionMemoire.vcxproj -> C:\Users\matrembl6\Source\Repos\GestionDeLaMemoire\GestionMemoire\Debug\GestionMemoire.pdb (Partial PDB)

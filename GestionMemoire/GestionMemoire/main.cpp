@@ -36,15 +36,20 @@ int main()
 	Call.InitialiserTablePage(tablePage);
 
 	ofstream Write;
+	int frame;
 	for (int i = 0; i < bits_page.size(); i++)
 	{
-		int CestTuBon = Call.TLB_Search(bits_page[i]);
-		if (CestTuBon == -1)
+		frame = Call.TLB_Search(bits_page[i]);
+		if (frame == -1)
 		{
 			int* page = Call.PageTableFind(tablePage, bits_page[i]);
 			if (page[2] == 0) 
 			{
-				Call.LoadFrame(bits_page[i],page,tablePage);
+				frame = Call.LoadFrame(bits_page[i],page,tablePage);
+			}
+			else
+			{
+				frame = page[1];
 			}
 		}
 		// adresse physique = frame*256 + bits_offset
@@ -52,6 +57,8 @@ int main()
 			<< "Physique : " << /*valeur*/ 0 << " "
 			<< "Valeur Dec : " << /*valeur*/ 0 << " "
 			<< "Valeur bin : " << /*valeur*/ 0 << "\t";
+
+		Call.LireValeur(bits_offset[i],frame);
 	}
 
 	// écrire dans le fichier

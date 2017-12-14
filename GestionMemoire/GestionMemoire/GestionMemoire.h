@@ -24,10 +24,11 @@ public:
 	int * PageTableFind(int pageTable[256][3], int page);
 	int TLB_Search(int nbPage);
 	void extrairePageEtOffset(const std::vector<int> & adresseLogique,std::vector<int> & page, std::vector<int> & offset);
-	void LoadFrame(const int &bp,int * page, int tablePage[256][3]);
-	void Update(const int & bp, int * page, int tablePage[256][3]);
+	int LoadFrame(const int &bp,int * page, int tablePage[256][3]);
+	int Update(const int & bp, int * page, int tablePage[256][3]);
 	void retirerFrame(int tablePage[256][3], int frame);
 	int TrouverDecimal(vector<int> offset, vector<int> page);
 	void Afficher(vector<int> logique, int physique[1000]);
+	void LireValeur(int bits_offset,int frame);
 };
 
