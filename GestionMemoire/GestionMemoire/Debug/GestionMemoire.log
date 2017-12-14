@@ -1,4 +1,6 @@
 ﻿  main.cpp
-c:\users\gabri\source\repos\gestiondelamemoire\gestionmemoire\gestionmemoire\main.cpp(40): warning C4018: '<' : incompatibilité signed/unsigned
-  GestionMemoire.vcxproj -> C:\Users\gabri\Source\Repos\GestionDeLaMemoire\GestionMemoire\Debug\GestionMemoire.exe
-  GestionMemoire.vcxproj -> C:\Users\gabri\Source\Repos\GestionDeLaMemoire\GestionMemoire\Debug\GestionMemoire.pdb (Partial PDB)
+c:\users\matrembl6\source\repos\gestiondelamemoire\gestionmemoire\gestionmemoire\main.cpp(40): warning C4018: '<' : incompatibilité signed/unsigned
+  GestionMemoire.cpp
+c:\users\matrembl6\source\repos\gestiondelamemoire\gestionmemoire\gestionmemoire\gestionmemoire.cpp(76): warning C4018: '<' : incompatibilité signed/unsigned
+  Génération de code en cours...
+c:\users\matrembl6\source\repos\gestiondelamemoire\gestionmemoire\gestionmemoire\gestionmemoire.cpp(102): error C4700: variable locale 'bit' non initialisée utilisée

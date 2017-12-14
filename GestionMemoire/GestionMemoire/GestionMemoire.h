@@ -20,6 +20,7 @@ public:
 	void LireAdresse(std::vector<int> &AL);
 	unsigned createMask(unsigned a, unsigned b);
 	void TLB_Queue(int nbPage, int nbFrame);
+	int * PageTableFind(const int pageTable[256][3], int page);
 	int TLB_Search(int nbPage);
 	void extrairePageEtOffset(const std::vector<int> & adresseLogique,std::vector<int> & page, std::vector<int> & offset);
 	void LoadFrame(const int &bp);
