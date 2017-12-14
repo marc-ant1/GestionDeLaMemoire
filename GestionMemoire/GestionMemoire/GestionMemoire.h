@@ -27,6 +27,6 @@ public:
 	int LoadFrame(const int &bp,int * page, int tablePage[256][3]);
 	int Update(const int & bp, int * page, int tablePage[256][3]);
 	void retirerFrame(int tablePage[256][3], int frame);
-	void LireValeur(int bits_offset,int frame);
+	char * LireValeur(int bits_offset,int frame);
 };
 

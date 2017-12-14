@@ -53,7 +53,7 @@ int main()
 			}
 		}
 
-		Call.LireValeur(bits_offset[i],frame);
+		char *valeur  = Call.LireValeur(bits_offset[i],frame);
 	}
 
 	// écrire dans le fichier

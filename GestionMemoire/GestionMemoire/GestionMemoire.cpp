@@ -88,7 +88,7 @@ void GestionMemoire::extrairePageEtOffset(const std::vector<int> & adresseLogiqu
 		offset.push_back(result);
 		
 		result = r2 & adresseLogique[i];
-		result >> 8;
+		result = result >> 8;
 		page.push_back(result);
 	}
 }
@@ -150,9 +150,9 @@ void GestionMemoire::retirerFrame(int tablePage[256][3], int frame)
 	}
 }
 
-void GestionMemoire::LireValeur(int bits_offset, int frame)
+char * GestionMemoire::LireValeur(int bits_offset, int frame)
 {
-	char value[8];
+	char value[1];
 	strncpy_s(value, RAM.at(frame) + bits_offset, 1);
-	//return value;
+	return value;
 }
