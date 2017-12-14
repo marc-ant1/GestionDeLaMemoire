@@ -21,7 +21,7 @@ int main()
 	int MaxEntryTLB = 16;
 	int memPhysique[256] = {0};			//Mémoire physique
 	int adressePhysique[1000] = {0};	//Adresses Physiques
-	int tablePage[256][2]={0};			//Table de page
+	int tablePage[256][3]={0};			//Table de page
 	std::vector<int> adresseLogique;	//Adresses Logiques
 	GestionMemoire Call(MaxEntryTLB);
 	
