@@ -8,6 +8,7 @@
 ////////////////////////////////////////////////////////////////
 
 #include <iostream>
+#include <fstream>
 #include <stdlib.h>
 #include <stdio.h>
 #include <sstream>
@@ -16,76 +17,26 @@
 #include <fstream>
 #include <string>
 
+#include "GestionMemoire.h"
+
 #define PAGE_t 256 //Taille d'une page (256 bytes)
 
-////////////////////////////////////////////////////////////////
-//Cette fonction retourne la valeur du byte signé
-//Créé par: 
-//Date: 
-//Modifié par:
-//Description:
-////////////////////////////////////////////////////////////////
-int fct_SignedByte(int page, int offset)
-{
-	//Ouvrir le fichier
-
-	unsigned int LENGTH = 1; //Le byte signé a une longueur de 1 byte
-	
-	nomduFichier.seekg(...); //Trouver l'endroit correspondant au byte signé dans le fichier
-	nomduFichier.read(...); //Lire cet emplacement
-
-	//Fermer le fichier
+using namespace std;
 
 
-
-}
-
-////////////////////////////////////////////////////////////////
-//Cette fonction créé un masque afin de lire les bits nécessaires. NE PAS MODIFIER ET UTILISER TEL QUEL DANS LE MAIN
-//Créé par: Sara Séguin
-//Date: 24 octobre 2017
-//Modifié par:
-//Description:
-////////////////////////////////////////////////////////////////
-unsigned createMask(unsigned a, unsigned b)
-{
-
-	unsigned r = 0;
-	for(unsigned i=a;i<=b;i++)
-	{
-		r |= 1 << i;
-	}
-	return r;
-}
-
-
-
-
-
-//////////////////////
-//////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////
-// PROGRAMME PRINCIPAL
-//////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////
 int main()
 {
-	
-	
-	
-	
 	//Initialisation et déclarations
 	int memPhysique[256] = {0}; //Mémoire physique
 	int adressePhysique[1000] = {0}; //Adresses Physiques
 	int tablePage[256][2]={0}; //Table de page
-	std::vector<int>adresseLogique; //Adresses Logiques
+	std::vector<int> adresseLogique; //Adresses Logiques
+	GestionMemoire* Call;
 	
 	//Lire le fichier d'adresses à traduire
+	Call->LireAdresse(adresseLogique);
 
-
+	/**
 	//Traduire l'adresse physique en adresse logique
 	//1. Traduire l'entier en bits
 	
@@ -107,7 +58,7 @@ int main()
 		//Traduire en bits, EXEMPLE
 		std::bitset<16>A = adresseLogique[i];
 		//EXEMPLE DE SYNTAXE POUR UTILISER LE MASQUE
-		result = r & A;
+		result = r & adresseLogique[i];
 		
 		
 		//ETC...
@@ -154,8 +105,7 @@ int main()
 	//Ecrire le fichier de sortie
 
 
-	
+	/**/
 	return 0;
-
 }
 
