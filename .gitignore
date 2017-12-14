@@ -30,3 +30,5 @@
 *.exe
 *.out
 *.app
+/GestionMemoire/GestionMemoire.VC.VC.opendb
+/GestionMemoire/GestionMemoire.VC.db
