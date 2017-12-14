@@ -32,6 +32,7 @@ int main()
 	int tablePage[256][2]={0}; //Table de page
 	std::vector<int> adresseLogique; //Adresses Logiques
 	GestionMemoire* Call;
+	Call = new GestionMemoire();
 	
 	//Lire le fichier d'adresses à traduire
 	Call->LireAdresse(adresseLogique);
