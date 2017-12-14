@@ -102,7 +102,7 @@ unsigned GestionMemoire::createMask(unsigned a, unsigned b)
 	return r;
 }
 
-void GestionMemoire::LoadFrame(const int &bp)
+void GestionMemoire::LoadFrame(const int &bp, int * page, int tablePage[256][3])
 {
 	ifstream File("simuleDisque.bin", ifstream::binary);
 	int valeur = 256 * bp;
@@ -110,12 +110,38 @@ void GestionMemoire::LoadFrame(const int &bp)
 	char* bit = new char[256];
 	File.read(bit, 256);
 	RAM.push_back(bit);
-	Update(bp);
+	Update(bp,page, tablePage);
 	File.close();
 }
 
-void GestionMemoire::Update(const int & bp)
+void GestionMemoire::Update(const int & bp,int * page, int tablePage[256][3])
 {
+	//Ajouter la page au TLB
 	TLB_Queue(bp, FrameCourant);
 
+	retirerFrame(tablePage, FrameCourant);
+
+	//Ajouter la page à la table de page
+	page[1] = FrameCourant;
+	page[2] = 1;
+	
+	if (FrameCourant == 255)
+	{
+		FrameCourant = 0;
+	}
+	else
+	{
+		FrameCourant++;
+	}
+}
+
+void GestionMemoire::retirerFrame(int tablePage[256][3], int frame)
+{
+	for (size_t i = 0; i < 256; i++)
+	{
+		if (tablePage[i][1] == frame)
+		{
+			tablePage[i][2] = 0;
+		}
+	}
 }

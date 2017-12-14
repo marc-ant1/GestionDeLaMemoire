@@ -44,7 +44,7 @@ int main()
 			int* page = Call.PageTableFind(tablePage, bits_page[i]);
 			if (page[2] == 0) 
 			{
-				Call.LoadFrame(bits_page[i]);
+				Call.LoadFrame(bits_page[i],page,tablePage);
 			}
 		}
 	}
