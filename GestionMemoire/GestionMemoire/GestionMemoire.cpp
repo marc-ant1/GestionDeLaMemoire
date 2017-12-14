@@ -98,7 +98,7 @@ void GestionMemoire::LoadFrame(const int &bp)
 	ifstream File("simuleDisque.bin", ifstream::binary);
 	int valeur = 256 * bp;
 	File.seekg(valeur, File.end);
-	char* bit;
+	char* bit = new char[256];
 	File.read(bit, 256);
 	RAM.push_back(bit);
 	Update();
