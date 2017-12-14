@@ -28,48 +28,44 @@ int main()
 	//Lire le fichier d'adresses à traduire
 	Call.LireAdresse(adresseLogique);
 
-	//Traduire l'adresse logique en adresse physique
-	//1. Traduire l'entier en bits
-		
-	//Stocker les nombres binaires dans un vecteur
-	std::vector<int>bits_offset,bits_page; //Un vecteur pour les bits de page et un autre pour les bits d'offset
-		
+	std::vector<int> bits_offset, bits_page;
+
+	//Extraire les bits représentant la page et l'offset
 	Call.extrairePageEtOffset(adresseLogique, bits_page, bits_offset);
+
+	Call.InitialiserTablePage(tablePage);
 
 	//Calcul de l'adresse physique
 	for (int i = 0; i < bits_page.size(); i++)
 	{
-		//Construire en bits et traduire en décimal
-
-		//Obtenir la valeur du byte signé
-		//... = fct_SignedByte(bits_page[i], bits_offset[i]);
+		int CestTuBon = Call.TLB_Search(bits_page[i]);
+		if (CestTuBon == -1)
+		{
+			int* page = Call.PageTableFind(tablePage, bits_page[i]);
+			if (page[2] == 0) 
+			{
+				Call.LoadFrame(bits_page[i]);
+			}
+		}
 	}
-	//	
-	//	
-	//	
-	//	
+
+	// écrire dans le fichier
+	//Construire en bits et traduire en décimal
+
+	//Obtenir la valeur du byte signé
+	//... = fct_SignedByte(bits_page[i], bits_offset[i]);
+	//
 	//	//Table de pages
 	//	//Une adresse à la fois, vérifier si elle est dans la table de page
 	//	
 	//	for(int i=0;i<bits_page.size();i++)
 	//	{
-	//			
 	//			if( tablePage[bits_page[i]][1]  != 1)
 	//			{
 	//				std::cout << "Page non-chargée dans la table" << std::endl;
-	//				//Charger la page 
-	//						
-	//				
-	//				
+	//				//Charger la page
 	//			}
 	//	}
-	//	
-	//	
-	//
-	//	
-	//	
-	//	
-	//	//Ecrire le fichier de sortie
 	return 0;
 }
 
