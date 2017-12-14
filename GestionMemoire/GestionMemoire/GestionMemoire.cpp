@@ -157,7 +157,12 @@ char * GestionMemoire::LireValeur(int bits_offset, int frame)
 	return value;
 }
 
-int GestionMemoire::TrouverDecimal(vector<int> offset, vector<int> page)
+int GestionMemoire::TrouverDecimal(char* valeur)
 {
-	return 0;
+	int total = 0;
+	for (int i = 7; i >= 0; i--)
+	{
+		total += pow(2 * valeur[i], 8 - i);
+	}
+	return total;
 }

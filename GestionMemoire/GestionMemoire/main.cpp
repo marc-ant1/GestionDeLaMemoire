@@ -52,13 +52,12 @@ int main()
 				frame = page[1];
 			}
 		}
+		char *valeur = Call.LireValeur(bits_offset[i], frame);
 		// adresse physique = frame*256 + bits_offset
 		Write << "Virtuelle : " << /*valeur*/ 0 << " "
 			<< "Physique : " << /*valeur*/ 0 << " "
-			<< "Valeur Dec : " << /*valeur*/ 0 << " "
+			<< "Valeur Dec : " << Call.TrouverDecimal(valeur) << " "
 			<< "Valeur bin : " << /*valeur*/ 0 << "\t";
-
-		char *valeur  = Call.LireValeur(bits_offset[i],frame);
 	}
 
 	// écrire dans le fichier
