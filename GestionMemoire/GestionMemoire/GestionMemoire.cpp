@@ -37,7 +37,7 @@ void GestionMemoire::TLB_Queue(int adress)
 
 bool GestionMemoire::TLB_Search(int adress)
 {
-	if (find(0, (MaxEntry - 1), adress))
+	if (find(TLB.begin(), TLB.end(), adress)!=TLB.end())
 	{
 		TLB_Find += 1;
 		return true;
