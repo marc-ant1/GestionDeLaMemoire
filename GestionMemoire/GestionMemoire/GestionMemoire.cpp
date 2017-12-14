@@ -107,7 +107,7 @@ int GestionMemoire::LoadFrame(const int &bp, int * page, int tablePage[256][3])
 {
 	ifstream File("simuleDisque.bin", ifstream::binary);
 	int valeur = 256 * bp;
-	File.seekg(valeur, File.end);
+	File.seekg(valeur, File.beg/*File.end*/);
 	char* bit = new char[256];
 	File.read(bit, 256);
 	RAM.push_back(bit);
@@ -150,19 +150,17 @@ void GestionMemoire::retirerFrame(int tablePage[256][3], int frame)
 	}
 }
 
-char * GestionMemoire::LireValeur(int bits_offset, int frame)
+char  GestionMemoire::LireValeur(int bits_offset, int frame)
 {
-	char value[2];
-	std::memcpy(value, RAM.at(frame) + bits_offset, sizeof value);
-	return value;
+	return (RAM[frame])[bits_offset];
 }
 
-int GestionMemoire::TrouverDecimal(char* valeur)
+int GestionMemoire::TrouverDecimal(char valeur)
 {
 	int total = 0;
 	for (int i = 7; i >= 0; i--)
 	{
-		total += pow(2 * valeur[i], 7 - i);
+		total += pow(2 * valeur, 7 - i);
 	}
 	return total;
 }

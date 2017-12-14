@@ -2,8 +2,7 @@
 c:\users\gabri\source\repos\gestiondelamemoire\gestionmemoire\gestionmemoire\main.cpp(39): warning C4018: '<' : incompatibilité signed/unsigned
   GestionMemoire.cpp
 c:\users\gabri\source\repos\gestiondelamemoire\gestionmemoire\gestionmemoire\gestionmemoire.cpp(85): warning C4018: '<' : incompatibilité signed/unsigned
-c:\users\gabri\source\repos\gestiondelamemoire\gestionmemoire\gestionmemoire\gestionmemoire.cpp(165): warning C4244: '+=' : conversion de 'double' en 'int', perte possible de données
+c:\users\gabri\source\repos\gestiondelamemoire\gestionmemoire\gestionmemoire\gestionmemoire.cpp(163): warning C4244: '+=' : conversion de 'double' en 'int', perte possible de données
   Génération de code en cours...
-c:\users\gabri\source\repos\gestiondelamemoire\gestionmemoire\gestionmemoire\gestionmemoire.cpp(157): warning C4172: retourne l'adresse d'une variable locale ou : value temporaire
   GestionMemoire.vcxproj -> C:\Users\gabri\Source\Repos\GestionDeLaMemoire\GestionMemoire\Debug\GestionMemoire.exe
   GestionMemoire.vcxproj -> C:\Users\gabri\Source\Repos\GestionDeLaMemoire\GestionMemoire\Debug\GestionMemoire.pdb (Partial PDB)

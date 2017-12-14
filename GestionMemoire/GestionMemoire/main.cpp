@@ -51,7 +51,7 @@ int main()
 				frame = page[1];
 			}
 		}
-		char *valeur = new char[1];
+		char valeur;
 		valeur = Call.LireValeur(bits_offset[i], frame);
 		// adresse physique = frame*256 + bits_offset
 		Write << "Virtuelle : " << adresseLogique[i] << " "
