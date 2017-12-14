@@ -17,9 +17,10 @@ public:
 	GestionMemoire(int n);
 	~GestionMemoire();
 	void LireAdresse(std::vector<int> &AL);
-	unsigned GestionMemoire::createMask(unsigned a, unsigned b);
+	unsigned createMask(unsigned a, unsigned b);
 	void TLB_Queue(int nbPage, int nbFrame);
 	bool TLB_Search(int nbPage);
+	int * PageTableFind(int pageTable[256][3], int page);
 	void extrairePageEtOffset(const std::vector<int> & adresseLogique,std::vector<int> & page, std::vector<int> & offset);
 	void LoadFrame(const int &bp);
 	void Update();
