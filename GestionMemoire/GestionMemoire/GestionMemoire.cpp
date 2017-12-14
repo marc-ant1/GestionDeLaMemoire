@@ -145,3 +145,8 @@ void GestionMemoire::retirerFrame(int tablePage[256][3], int frame)
 		}
 	}
 }
+
+int GestionMemoire::TrouverDecimal(vector<int> offset, vector<int> page)
+{
+	return 0;
+}

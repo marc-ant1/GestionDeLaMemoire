@@ -27,5 +27,7 @@ public:
 	void LoadFrame(const int &bp,int * page, int tablePage[256][3]);
 	void Update(const int & bp, int * page, int tablePage[256][3]);
 	void retirerFrame(int tablePage[256][3], int frame);
+	int TrouverDecimal(vector<int> offset, vector<int> page);
+	void Afficher(vector<int> logique, int physique[1000]);
 };
 
