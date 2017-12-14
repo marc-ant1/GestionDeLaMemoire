@@ -27,6 +27,16 @@ void GestionMemoire::LireAdresse(std::vector<int> &AL)
 	File.close();
 }
 
+void GestionMemoire::InitialiserTablePage(int pageTable[256][3])
+{
+	for (int i = 0; i < 256; i++)
+	{
+		pageTable[i][0] = i;
+		pageTable[i][1] = 0;
+		pageTable[i][2] = 0;
+	}
+}
+
 void GestionMemoire::TLB_Queue(int nbPage, int nbFrame)
 {
 	if (TLB.size() == MaxEntry)
@@ -39,17 +49,16 @@ void GestionMemoire::TLB_Queue(int nbPage, int nbFrame)
 	TLB.push_back(tmp);
 }
 
-bool GestionMemoire::TLB_Search(int nbPage)
+int GestionMemoire::TLB_Search(int nbPage)
 {
-	/* find */
 	for (list<list<int>>::iterator i = TLB.begin(); i != TLB.end(); i++)
 	{
 		if (i->front() == nbPage)
 		{
-			return true;
+			return i->back();
 		}
 	}
-	return false;
+	return -1;
 }
 
 int  * GestionMemoire::PageTableFind(int pageTable[256][3], int page)
@@ -61,7 +70,6 @@ int  * GestionMemoire::PageTableFind(int pageTable[256][3], int page)
 			return &pageTable[i][0];
 		}
 	}
-
 	return nullptr;
 }
 
