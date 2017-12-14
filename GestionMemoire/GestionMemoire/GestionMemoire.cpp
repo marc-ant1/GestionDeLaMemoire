@@ -42,16 +42,31 @@ bool GestionMemoire::TLB_Search(int adress)
 		TLB_Find += 1;
 		return true;
 	}
-	else
+
+	return false;
+}
+
+void GestionMemoire::extrairePageEtOffset(const std::vector<int> & adresseLogique, std::vector<int>& page, std::vector<int>& offset)
+{
+	//Crééer un masque pour lire juste les bits 0 à 7 (offset)
+	unsigned r = createMask(0, 7);
+
+	//Créer un masque pour lire juste les bits 8 à 15 (page)
+	unsigned r2 = createMask(8, 15);
+
+	//Extraire la page et l'offset selon les masques définis précédemment
+	for (int i = 0; i< adresseLogique.size(); i++)
 	{
-		TLB_NotFind += 1;
-		return false;
+		int result = r & adresseLogique[i];
+		offset.push_back(result);
+		
+		result = r2 & adresseLogique[i];
+		page.push_back(result);
 	}
 }
 
 unsigned GestionMemoire::createMask(unsigned a, unsigned b)
 {
-
 	unsigned r = 0;
 	for (unsigned i = a; i <= b; i++)
 	{
