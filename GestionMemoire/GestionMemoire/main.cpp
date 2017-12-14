@@ -35,6 +35,15 @@ int main()
 	std::vector<int>bits_offset,bits_page; //Un vecteur pour les bits de page et un autre pour les bits d'offset
 		
 	Call.extrairePageEtOffset(adresseLogique, bits_page, bits_offset);
+
+	//Calcul de l'adresse physique
+	for (int i = 0; i < bits_page.size(); i++)
+	{
+		//Construire en bits et traduire en décimal
+
+		//Obtenir la valeur du byte signé
+		//... = fct_SignedByte(bits_page[i], bits_offset[i]);
+	}
 	//	
 	//	
 	//	

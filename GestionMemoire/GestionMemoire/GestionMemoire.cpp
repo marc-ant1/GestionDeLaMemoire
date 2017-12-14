@@ -26,23 +26,28 @@ void GestionMemoire::LireAdresse(std::vector<int> &AL)
 	File.close();
 }
 
-void GestionMemoire::TLB_Queue(int adress)
+void GestionMemoire::TLB_Queue(int nbPage, int nbFrame)
 {
 	if (TLB.size() == MaxEntry)
 	{
 		TLB.pop_front();
 	}
-	TLB.push_back(adress);
+	list<int> tmp;
+	tmp.push_back(nbPage);
+	tmp.push_back(nbFrame);
+	TLB.push_back(tmp);
 }
 
-bool GestionMemoire::TLB_Search(int adress)
+bool GestionMemoire::TLB_Search(int nbPage)
 {
-	if (find(TLB.begin(), TLB.end(), adress)!=TLB.end())
+	/* find */
+	for (list<list<int>>::iterator i = TLB.begin(); i != TLB.end(); i++)
 	{
-		TLB_Find += 1;
-		return true;
+		if (i->front() == nbPage)
+		{
+			return true;
+		}
 	}
-
 	return false;
 }
 
@@ -73,4 +78,21 @@ unsigned GestionMemoire::createMask(unsigned a, unsigned b)
 		r |= 1 << i;
 	}
 	return r;
+}
+
+void GestionMemoire::LoadFrame(const int &bp)
+{
+	ifstream File("simuleDisque.bin", ifstream::binary);
+	int valeur = 256 * bp;
+	File.seekg(valeur, File.end);
+	char* bit;
+	File.read(bit, 256);
+	RAM.push_back(bit);
+	Update();
+	File.close();
+}
+
+void GestionMemoire::Update()
+{
+
 }
