@@ -162,7 +162,7 @@ int GestionMemoire::TrouverDecimal(char* valeur)
 	int total = 0;
 	for (int i = 7; i >= 0; i--)
 	{
-		total += pow(2 * valeur[i], 8 - i);
+		total += pow(2 * valeur[i], 7 - i);
 	}
 	return total;
 }
