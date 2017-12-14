@@ -1,10 +1,16 @@
 #include "GestionMemoire.h"
 
 #include <fstream>
+#include <algorithm>
 
 using namespace std;
 
-GestionMemoire::GestionMemoire() {}
+GestionMemoire::GestionMemoire(int n)
+{
+	MaxEntry = n;
+	TLB_Find = 0;
+	TLB_NotFind = 0;
+}
 
 GestionMemoire::~GestionMemoire() {}
 
@@ -22,13 +28,25 @@ void GestionMemoire::LireAdresse(std::vector<int> &AL)
 
 void GestionMemoire::TLB_Queue(int adress)
 {
-	TLB.pop();
-	TLB.push(adress);
+	if (TLB.size() == MaxEntry)
+	{
+		TLB.pop_front();
+	}
+	TLB.push_back(adress);
 }
 
 bool GestionMemoire::TLB_Search(int adress)
 {
-
+	if (find(0, (MaxEntry - 1), adress))
+	{
+		TLB_Find += 1;
+		return true;
+	}
+	else
+	{
+		TLB_NotFind += 1;
+		return false;
+	}
 }
 
 unsigned GestionMemoire::createMask(unsigned a, unsigned b)
