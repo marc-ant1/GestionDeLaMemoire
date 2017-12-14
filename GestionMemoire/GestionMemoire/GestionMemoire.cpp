@@ -8,15 +8,16 @@ GestionMemoire::GestionMemoire() {}
 
 GestionMemoire::~GestionMemoire() {}
 
-void GestionMemoire::LireAdresse(std::vector<int> AL)
+void GestionMemoire::LireAdresse(std::vector<int> &AL)
 {
-	ifstream File("addresses");
-	while (File.eof() == false)
+	ifstream File("addresses.txt");
+	while (!File.eof())
 	{
 		int tmp;
 		File >> tmp;
 		AL.push_back(tmp);
 	}
+	File.close();
 }
 
 /**
@@ -36,7 +37,6 @@ int GestionMemoire::fct_SignedByte(int page, int offset)
 }
 /**/
 
-/**
 unsigned GestionMemoire::createMask(unsigned a, unsigned b)
 {
 
@@ -47,4 +47,3 @@ unsigned GestionMemoire::createMask(unsigned a, unsigned b)
 	}
 	return r;
 }
-/**/
