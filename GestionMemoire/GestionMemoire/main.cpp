@@ -36,17 +36,24 @@ int main()
 	Call.InitialiserTablePage(tablePage);
 
 	//Calcul de l'adresse physique
+	int frame;
 	for (int i = 0; i < bits_page.size(); i++)
 	{
-		int CestTuBon = Call.TLB_Search(bits_page[i]);
-		if (CestTuBon == -1)
+		frame = Call.TLB_Search(bits_page[i]);
+		if (frame == -1)
 		{
 			int* page = Call.PageTableFind(tablePage, bits_page[i]);
 			if (page[2] == 0) 
 			{
-				Call.LoadFrame(bits_page[i],page,tablePage);
+				frame = Call.LoadFrame(bits_page[i],page,tablePage);
+			}
+			else
+			{
+				frame = page[1];
 			}
 		}
+
+		Call.LireValeur(bits_offset[i],frame);
 	}
 
 	// écrire dans le fichier

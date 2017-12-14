@@ -88,6 +88,7 @@ void GestionMemoire::extrairePageEtOffset(const std::vector<int> & adresseLogiqu
 		offset.push_back(result);
 		
 		result = r2 & adresseLogique[i];
+		result >> 8;
 		page.push_back(result);
 	}
 }
@@ -102,7 +103,7 @@ unsigned GestionMemoire::createMask(unsigned a, unsigned b)
 	return r;
 }
 
-void GestionMemoire::LoadFrame(const int &bp, int * page, int tablePage[256][3])
+int GestionMemoire::LoadFrame(const int &bp, int * page, int tablePage[256][3])
 {
 	ifstream File("simuleDisque.bin", ifstream::binary);
 	int valeur = 256 * bp;
@@ -110,12 +111,14 @@ void GestionMemoire::LoadFrame(const int &bp, int * page, int tablePage[256][3])
 	char* bit = new char[256];
 	File.read(bit, 256);
 	RAM.push_back(bit);
-	Update(bp,page, tablePage);
+	int frame = Update(bp,page, tablePage);
 	File.close();
+	return frame;
 }
 
-void GestionMemoire::Update(const int & bp,int * page, int tablePage[256][3])
+int GestionMemoire::Update(const int & bp,int * page, int tablePage[256][3])
 {
+	int frame = FrameCourant;
 	//Ajouter la page au TLB
 	TLB_Queue(bp, FrameCourant);
 
@@ -133,6 +136,7 @@ void GestionMemoire::Update(const int & bp,int * page, int tablePage[256][3])
 	{
 		FrameCourant++;
 	}
+	return frame;
 }
 
 void GestionMemoire::retirerFrame(int tablePage[256][3], int frame)
@@ -144,4 +148,11 @@ void GestionMemoire::retirerFrame(int tablePage[256][3], int frame)
 			tablePage[i][2] = 0;
 		}
 	}
+}
+
+void GestionMemoire::LireValeur(int bits_offset, int frame)
+{
+	char value[8];
+	strncpy_s(value, RAM.at(frame) + bits_offset, 1);
+	//return value;
 }
