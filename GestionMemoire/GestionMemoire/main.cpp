@@ -21,7 +21,7 @@ int main()
 	int MaxEntryTLB = 16;
 	int memPhysique[256] = {0};			//Mémoire physique
 	int adressePhysique[1000] = {0};	//Adresses Physiques
-	int tablePage[256][2]={0};			//Table de page
+	int tablePage[256][3]={0};			//Table de page
 	std::vector<int> adresseLogique;	//Adresses Logiques
 	GestionMemoire Call(MaxEntryTLB);
 	
@@ -35,29 +35,8 @@ int main()
 	std::vector<int>bits_offset,bits_page; //Un vecteur pour les bits de page et un autre pour les bits d'offset
 		
 	Call.extrairePageEtOffset(adresseLogique, bits_page, bits_offset);
-	//	
-	//	
-	//	
-	//	
-	//	//Table de pages
-	//	//Une adresse à la fois, vérifier si elle est dans la table de page
-	//	
-	//	for(int i=0;i<bits_page.size();i++)
-	//	{
-	//			
-	//			if( tablePage[bits_page[i]][1]  != 1)
-	//			{
-	//				std::cout << "Page non-chargée dans la table" << std::endl;
-	//				//Charger la page 
-	//						
-	//				
-	//				
-	//			}
-	//	}
-	//	
-	//	
-	//
-	//	
+
+	
 	//	
 	//	
 	//	//Ecrire le fichier de sortie

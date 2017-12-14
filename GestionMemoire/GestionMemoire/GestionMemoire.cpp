@@ -46,6 +46,19 @@ bool GestionMemoire::TLB_Search(int adress)
 	return false;
 }
 
+int * GestionMemoire::PageTableFind(int pageTable[256][3], int page)
+{
+	for (size_t i = 0; i < 256; i++)
+	{
+		if (pageTable[i][0] == page)
+		{
+			return &pageTable[i][0];
+		}
+	}
+
+	return nullptr;
+}
+
 void GestionMemoire::extrairePageEtOffset(const std::vector<int> & adresseLogique, std::vector<int>& page, std::vector<int>& offset)
 {
 	//Crééer un masque pour lire juste les bits 0 à 7 (offset)
