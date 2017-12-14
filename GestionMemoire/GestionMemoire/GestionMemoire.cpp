@@ -10,6 +10,7 @@ GestionMemoire::GestionMemoire(int n)
 	MaxEntry = n;
 	TLB_Find = 0;
 	TLB_NotFind = 0;
+	FrameCourant = 0;
 }
 
 GestionMemoire::~GestionMemoire() {}
@@ -51,7 +52,7 @@ bool GestionMemoire::TLB_Search(int nbPage)
 	return false;
 }
 
-int  * GestionMemoire::PageTableFind(const int pageTable[256][3], int page)
+int  * GestionMemoire::PageTableFind(int pageTable[256][3], int page)
 {
 	for (size_t i = 0; i < 256; i++)
 	{
@@ -101,11 +102,12 @@ void GestionMemoire::LoadFrame(const int &bp)
 	char* bit = new char[256];
 	File.read(bit, 256);
 	RAM.push_back(bit);
-	Update();
+	Update(bp);
 	File.close();
 }
 
-void GestionMemoire::Update()
+void GestionMemoire::Update(const int & bp)
 {
+	TLB_Queue(bp, FrameCourant);
 
 }

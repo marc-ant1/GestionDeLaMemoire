@@ -13,6 +13,7 @@ private:
 	int TLB_Find;
 	int TLB_NotFind;
 	vector<char*> RAM;
+	int FrameCourant;
 public:
 	GestionMemoire(int n);
 	~GestionMemoire();
@@ -20,9 +21,9 @@ public:
 	unsigned createMask(unsigned a, unsigned b);
 	void TLB_Queue(int nbPage, int nbFrame);
 	bool TLB_Search(int nbPage);
-	int * PageTableFind(const int pageTable[256][3], int page);
+	int * PageTableFind(int pageTable[256][3], int page);
 	void extrairePageEtOffset(const std::vector<int> & adresseLogique,std::vector<int> & page, std::vector<int> & offset);
 	void LoadFrame(const int &bp);
-	void Update();
+	void Update(const int & bp);
 };
 
