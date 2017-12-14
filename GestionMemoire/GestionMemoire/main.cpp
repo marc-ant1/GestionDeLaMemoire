@@ -58,7 +58,8 @@ int main()
 			<< "Valeur Dec : " << /*valeur*/ 0 << " "
 			<< "Valeur bin : " << /*valeur*/ 0 << "\t";
 
-		char *valeur  = Call.LireValeur(bits_offset[i],frame);
+		char *valeur = new char[1];
+		valeur = Call.LireValeur(bits_offset[i],frame);
 	}
 
 	// écrire dans le fichier

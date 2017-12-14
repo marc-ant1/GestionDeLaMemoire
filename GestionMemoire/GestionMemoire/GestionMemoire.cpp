@@ -152,8 +152,8 @@ void GestionMemoire::retirerFrame(int tablePage[256][3], int frame)
 
 char * GestionMemoire::LireValeur(int bits_offset, int frame)
 {
-	char value[1];
-	strncpy_s(value, RAM.at(frame) + bits_offset, 1);
+	char value[2];
+	std::memcpy(value, RAM.at(frame) + bits_offset, sizeof value);
 	return value;
 }
 
