@@ -156,3 +156,8 @@ char * GestionMemoire::LireValeur(int bits_offset, int frame)
 	strncpy_s(value, RAM.at(frame) + bits_offset, 1);
 	return value;
 }
+
+int GestionMemoire::TrouverDecimal(vector<int> offset, vector<int> page)
+{
+	return 0;
+}

@@ -35,7 +35,7 @@ int main()
 
 	Call.InitialiserTablePage(tablePage);
 
-	//Calcul de l'adresse physique
+	ofstream Write;
 	int frame;
 	for (int i = 0; i < bits_page.size(); i++)
 	{
@@ -52,11 +52,17 @@ int main()
 				frame = page[1];
 			}
 		}
+		// adresse physique = frame*256 + bits_offset
+		Write << "Virtuelle : " << /*valeur*/ 0 << " "
+			<< "Physique : " << /*valeur*/ 0 << " "
+			<< "Valeur Dec : " << /*valeur*/ 0 << " "
+			<< "Valeur bin : " << /*valeur*/ 0 << "\t";
 
 		char *valeur  = Call.LireValeur(bits_offset[i],frame);
 	}
 
 	// écrire dans le fichier
+
 	//Construire en bits et traduire en décimal
 
 	//Obtenir la valeur du byte signé
