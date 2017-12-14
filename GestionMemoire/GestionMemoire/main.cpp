@@ -34,7 +34,7 @@ int main()
 
 	Call.InitialiserTablePage(tablePage);
 
-	ofstream Write;
+	ofstream Write("resultat");
 	int frame;
 	for (int i = 0; i < bits_page.size(); i++)
 	{
