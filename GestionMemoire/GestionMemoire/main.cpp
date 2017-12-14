@@ -20,7 +20,6 @@ int main()
 	//Initialisation et déclarations
 	int MaxEntryTLB = 16;
 	int memPhysique[256] = {0};			//Mémoire physique
-	int adressePhysique[1000] = {0};	//Adresses Physiques
 	int tablePage[256][3]={0};			//Table de page
 	std::vector<int> adresseLogique;	//Adresses Logiques
 	GestionMemoire Call(MaxEntryTLB);
@@ -55,31 +54,11 @@ int main()
 		char *valeur = new char[1];
 		valeur = Call.LireValeur(bits_offset[i], frame);
 		// adresse physique = frame*256 + bits_offset
-		Write << "Virtuelle : " << /*valeur*/ 0 << " "
-			<< "Physique : " << /*valeur*/ 0 << " "
+		Write << "Virtuelle : " << adresseLogique[i] << " "
+			<< "Physique : " << ((frame * 256) + bits_offset[i]) << " "
 			<< "Valeur Dec : " << Call.TrouverDecimal(valeur) << " "
-			<< "Valeur bin : " << /*valeur*/ 0 << "\t";
-
+			<< "Valeur bin : " << valeur << "\t";
 	}
-
-	// écrire dans le fichier
-
-	//Construire en bits et traduire en décimal
-
-	//Obtenir la valeur du byte signé
-	//... = fct_SignedByte(bits_page[i], bits_offset[i]);
-	//
-	//	//Table de pages
-	//	//Une adresse à la fois, vérifier si elle est dans la table de page
-	//	
-	//	for(int i=0;i<bits_page.size();i++)
-	//	{
-	//			if( tablePage[bits_page[i]][1]  != 1)
-	//			{
-	//				std::cout << "Page non-chargée dans la table" << std::endl;
-	//				//Charger la page
-	//			}
-	//	}
 	return 0;
 }
 
