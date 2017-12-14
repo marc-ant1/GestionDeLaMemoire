@@ -1,4 +1,5 @@
 ﻿  GestionMemoire.cpp
 c:\users\matrembl6\source\repos\gestiondelamemoire\gestionmemoire\gestionmemoire\gestionmemoire.cpp(85): warning C4018: '<' : incompatibilité signed/unsigned
+c:\users\matrembl6\source\repos\gestiondelamemoire\gestionmemoire\gestionmemoire\gestionmemoire.cpp(157): warning C4172: retourne l'adresse d'une variable locale ou : value temporaire
   GestionMemoire.vcxproj -> C:\Users\matrembl6\Source\Repos\GestionDeLaMemoire\GestionMemoire\Debug\GestionMemoire.exe
   GestionMemoire.vcxproj -> C:\Users\matrembl6\Source\Repos\GestionDeLaMemoire\GestionMemoire\Debug\GestionMemoire.pdb (Partial PDB)
