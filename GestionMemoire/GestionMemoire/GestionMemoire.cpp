@@ -51,7 +51,7 @@ bool GestionMemoire::TLB_Search(int nbPage)
 	return false;
 }
 
-int * GestionMemoire::PageTableFind(int pageTable[256][3], int page)
+int  * GestionMemoire::PageTableFind(const int pageTable[256][3], int page)
 {
 	for (size_t i = 0; i < 256; i++)
 	{
