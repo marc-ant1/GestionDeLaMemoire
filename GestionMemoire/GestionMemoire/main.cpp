@@ -53,11 +53,12 @@ int main()
 		}
 		char valeur;
 		valeur = Call.LireValeur(bits_offset[i], frame);
+
 		// adresse physique = frame*256 + bits_offset
 		Write << "Virtuelle : " << adresseLogique[i] << " "
 			<< "Physique : " << ((frame * 256) + bits_offset[i]) << " "
-			<< "Valeur Dec : " << Call.TrouverDecimal(valeur) << " "
-			<< "Valeur bin : " << valeur << "\t";
+			<< "Valeur Dec : " << (int)valeur << " "
+			<< "Valeur bin : " << valeur << "\n";
 	}
 	return 0;
 }
