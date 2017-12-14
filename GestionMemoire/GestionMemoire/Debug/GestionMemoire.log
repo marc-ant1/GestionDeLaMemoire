@@ -1,3 +1,8 @@
-﻿  main.cpp
+﻿  GestionMemoire.cpp
+c:\users\gabri\source\repos\gestiondelamemoire\gestionmemoire\gestionmemoire\gestionmemoire.cpp(36): warning C4018: '<' : incompatibilité signed/unsigned
+  Génération de code en cours...
+  Compilation en cours...
+  main.cpp
+  Génération de code en cours...
   GestionMemoire.vcxproj -> C:\Users\gabri\Source\Repos\GestionDeLaMemoire\GestionMemoire\Debug\GestionMemoire.exe
   GestionMemoire.vcxproj -> C:\Users\gabri\Source\Repos\GestionDeLaMemoire\GestionMemoire\Debug\GestionMemoire.pdb (Partial PDB)

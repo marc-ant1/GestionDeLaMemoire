@@ -18,11 +18,12 @@ using namespace std;
 int main()
 {
 	//Initialisation et déclarations
+	int MaxEntryTLB = 16;
 	int memPhysique[256] = {0};			//Mémoire physique
 	int adressePhysique[1000] = {0};	//Adresses Physiques
 	int tablePage[256][2]={0};			//Table de page
 	std::vector<int> adresseLogique;	//Adresses Logiques
-	GestionMemoire Call;
+	GestionMemoire Call(MaxEntryTLB);
 	
 	//Lire le fichier d'adresses à traduire
 	Call.LireAdresse(adresseLogique);

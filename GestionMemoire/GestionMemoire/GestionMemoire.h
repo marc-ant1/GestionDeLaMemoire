@@ -1,14 +1,19 @@
 #pragma once
 
 #include <vector>
-#include <queue>
+#include <list>
+
+using namespace std;
 
 class GestionMemoire
 {
 private:
-	queue<int> TLB;
+	list<int> TLB;
+	int MaxEntry;
+	int TLB_Find;
+	int TLB_NotFind;
 public:
-	GestionMemoire();
+	GestionMemoire(int n);
 	~GestionMemoire();
 	void LireAdresse(std::vector<int> AL);
 	void TLB_Queue(int adress);
