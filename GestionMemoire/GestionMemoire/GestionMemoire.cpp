@@ -4,14 +4,9 @@
 
 using namespace std;
 
-GestionMemoire::GestionMemoire()
-{
-}
+GestionMemoire::GestionMemoire() {}
 
-
-GestionMemoire::~GestionMemoire()
-{
-}
+GestionMemoire::~GestionMemoire() {}
 
 void GestionMemoire::LireAdresse(std::vector<int> AL)
 {
