@@ -75,16 +75,7 @@ int main()
 	//	}
 	//	
 	//	
-	//	
-	//	//Calcul de l'adresse physique
-	//	for(int i=0;i<bits_page.size();i++)
-	//	{
-	//		//Construire en bits et traduire en décimal
-	//		
-	//		//Obtenir la valeur du byte signé
-	//		... = fct_SignedByte(bits_page[i],bits_offset[i]);
-	//	
-	//	}
+	//
 	//	
 	//	
 	//	

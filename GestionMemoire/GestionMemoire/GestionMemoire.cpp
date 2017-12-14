@@ -20,22 +20,16 @@ void GestionMemoire::LireAdresse(std::vector<int> &AL)
 	File.close();
 }
 
-/**
-int GestionMemoire::fct_SignedByte(int page, int offset)
+void GestionMemoire::TLB_Queue(int adress)
 {
-	
-	//Ouvrir le fichier
+	TLB.pop();
+	TLB.push(adress);
+}
 
-	unsigned int LENGTH = 1; //Le byte signé a une longueur de 1 byte
-
-	nomduFichier.seekg(...); //Trouver l'endroit correspondant au byte signé dans le fichier
-	nomduFichier.read(...); //Lire cet emplacement
-
-	//Fermer le fichier
-	return 0;
+bool GestionMemoire::TLB_Search(int adress)
+{
 
 }
-/**/
 
 unsigned GestionMemoire::createMask(unsigned a, unsigned b)
 {
