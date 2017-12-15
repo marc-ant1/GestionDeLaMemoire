@@ -1,12 +1,4 @@
-#include <iostream>
 #include <fstream>
-#include <stdlib.h>
-#include <stdio.h>
-#include <sstream>
-#include <vector>
-#include <bitset>
-#include <fstream>
-#include <string>
 
 #include "GestionMemoire.h"
 
@@ -53,13 +45,12 @@ int main()
 		}
 		char valeur;
 		valeur = Call.LireValeur(bits_offset[i], frame);
-
-		// adresse physique = frame*256 + bits_offset
 		Write << "Virtuelle : " << adresseLogique[i] << " "
 			<< "Physique : " << ((frame * 256) + bits_offset[i]) << " "
 			<< "Valeur Dec : " << (int)valeur << " "
 			<< "Valeur bin : " << valeur << "\n";
 	}
+	Write.close();
 	return 0;
 }
 
