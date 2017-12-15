@@ -1,11 +1,9 @@
 #include <fstream>
+#include <vector>
 
 #include "GestionMemoire.h"
 
-#define TaillePage 256;
-
 using namespace std;
-
 
 int main()
 {
@@ -51,6 +49,7 @@ int main()
 			<< "Valeur bin : " << valeur << "\n";
 	}
 	Write.close();
+	Call.CalculSucces();
 	return 0;
 }
 

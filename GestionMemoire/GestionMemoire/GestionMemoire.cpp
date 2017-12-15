@@ -1,7 +1,6 @@
 #include "GestionMemoire.h"
 
 #include <fstream>
-#include <algorithm>
 
 using namespace std;
 
@@ -9,7 +8,8 @@ GestionMemoire::GestionMemoire(int n)
 {
 	MaxEntry = n;
 	TLB_Find = 0;
-	TLB_NotFind = 0;
+	TP_Find = 0;
+	TP_NotFind = 0;
 	FrameCourant = 0;
 }
 
@@ -55,10 +55,17 @@ int GestionMemoire::TLB_Search(int nbPage)
 	{
 		if (i->front() == nbPage)
 		{
+			TLB_Find += 1;
 			return i->back();
 		}
 	}
 	return -1;
+}
+
+void GestionMemoire::CalculSucces()
+{
+	float SuccesTLB = TLB_Find / 1000;
+	float PageFaultRate = TP_Find / (TP_Find + TP_NotFind);
 }
 
 int  * GestionMemoire::PageTableFind(int pageTable[256][3], int page)
@@ -67,9 +74,11 @@ int  * GestionMemoire::PageTableFind(int pageTable[256][3], int page)
 	{
 		if (pageTable[i][0] == page)
 		{
+			TP_Find += 1;
 			return &pageTable[i][0];
 		}
 	}
+	TP_NotFind += 1;
 	return nullptr;
 }
 

@@ -10,8 +10,9 @@ class GestionMemoire
 private:
 	int MaxEntry;
 	int TLB_Find;
-	int TLB_NotFind;
 	int FrameCourant;
+	int TP_Find;
+	int TP_NotFind;
 	vector<char*> RAM;
 	list<list<int>> TLB;
 public:
@@ -33,5 +34,7 @@ public:
 	int Update(const int & bp, int * page, int tablePage[256][3]);
 	int * PageTableFind(int pageTable[256][3], int page);
 	int TLB_Search(int nbPage);
+
+	void CalculSucces();
 };
 
